@@ -92,8 +92,9 @@ function init() {
     var trebleCont = animationAPI.getKeyPath("C | Treble_Hand 2,Transform,Position");
     var trebleBackHandCont = animationAPI.getKeyPath("C | Treble_BackHand,Transform,Position");
     var highmidCont = animationAPI.getKeyPath("C | Mid_R_Hand 2,Transform,Position");
-    //var midCont = animationAPI.getKeyPath("C | Mid_Bone 2,Transform,Position");
+
     var midCont = animationAPI.getKeyPath("BoneControl,Transform,Position");
+    var midCont = animationAPI.getKeyPath("C | Mid_Bone 2,Transform,Position");
     var lowMidCont = animationAPI.getKeyPath("C | Mid_Head,Transform,Position");
     var bassCont = animationAPI.getKeyPath("C | Bass_L_Hand_Wrist,Transform,Position");
     var headCont = animationAPI.getKeyPath("C | BassHead,Transform,Position");
@@ -122,8 +123,8 @@ function init() {
     animationAPI.addValueCallback(midCont, function(currentValue) {
         //range -200,200
         var energy = audioMotion.getEnergy(200, 3000) * 1600;
-        energy = Math.min(Math.max(energy, 0), 200);
-        midCont[0] = energy;
+        energy = Math.min(Math.max(energy, 0), 150);
+        midCont[0] = energy + audioMotion.getEnergy(200, 3000) * 200 - 50;
         return midCont;
     });
     animationAPI.addValueCallback(lowMidCont, function(currentValue) {

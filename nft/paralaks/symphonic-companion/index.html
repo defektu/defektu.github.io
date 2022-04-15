@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <!-- All rights reserved by @defektu -->
+    <script src="lottie.min.js"></script>
+    <script src="lottie_api.min.js"></script>
+
+</head>
+
+<body>
+    <div id="bodymovin"></div>
+
+    <!-- audio element -->
+    <div id="container"></div>
+    <!-- https://icecast2.ufpel.edu.br/live -->
+    <audio id="audio" src="http://uk7.internet-radio.com:8000/index.html/stream?type=http&nocache=38891" controls crossorigin></audio>
+
+    <label class="standartLabel">Upload audio file
+        <input id="upload" type="file" accept="audio/*">
+    </label>
+
+    <button id="live">Play live stream</button>
+    <label class="switch">
+        <input type="checkbox" id="mic">
+        <span class="slider round">🎤 ON/OFF </span>
+
+    </label>
+
+
+    <!-- <div class="info"><a href="https://audiomotion.dev">audioMotion-analyzer</a> <span id="version"></span></div> -->
+    <!-- partial -->
+    <!-- <script src="./fft.js"></script>
+    <script src="./pitch.js"></script> -->
+    <script type="module" src="./script.js"></script>
+
+</body>
+
+</html>

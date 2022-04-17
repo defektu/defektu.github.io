@@ -22,7 +22,7 @@ const audioMotion = new AudioMotionAnalyzer(
     document.getElementById('container'), {
         source: audioEl,
         smoothing: 0.9,
-        useCanvas: true
+        useCanvas: false
     }
 );
 

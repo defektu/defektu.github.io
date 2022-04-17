@@ -26,6 +26,8 @@
         };
 
 
+
+
         function init() {
             animationAPI = lottie_api.createAnimationApi(anim);
 
@@ -38,6 +40,21 @@
             animationAPI.addValueCallback(mousemov2, function(currentValue) {
                 return mousePosition;
             });
+            window.addEventListener('touchmove', function(ev) {
+                console.log(ev);
+
+                var touch = ev.touches[0] || ev.changedTouches[0];
+                var transformedPosition = animationAPI.toContainerPoint([touch.pageX, touch.pageY]);
+                mousePosition[0] = transformedPosition[0];
+                mousePosition[1] = transformedPosition[1];
+
+
+                /* else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover' || e.type == 'mouseout' || e.type == 'mouseenter' || e.type == 'mouseleave') {
+                               mousePosition[0] = e.clientX;
+                               mousePosition[1] = e.clientY;
+                           } */
+            });
+
 
             window.addEventListener("mousemove", function(ev) {
                 var transformedPosition = animationAPI.toContainerPoint([ev.pageX, ev.pageY]);

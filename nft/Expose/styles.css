@@ -13,6 +13,7 @@ html {
 #animCont {
     height: 100%;
     width: 99vh;
+    display: flex;
 }
 
 svg {

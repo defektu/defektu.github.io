@@ -40,17 +40,16 @@
             animationAPI.addValueCallback(mousemov2, function(currentValue) {
                 return mousePosition;
             });
-            window.addEventListener('touchmove', function(ev) {
-                console.log(ev);
 
-                var touch = ev.touches[0] || ev.changedTouches[0];
-                var transformedPosition = animationAPI.toContainerPoint([touch.pageX, touch.pageY]);
-                mousePosition[0] = transformedPosition[0];
-                mousePosition[1] = transformedPosition[1];
+            ['touchstart', 'touchmove'].forEach(evt =>
+                window.addEventListener(evt, function(ev) {
+                    var touch = ev.touches[0] || ev.changedTouches[0];
+                    var transformedPosition = animationAPI.toContainerPoint([touch.pageX, touch.pageY]);
+                    mousePosition[0] = transformedPosition[0];
+                    mousePosition[1] = transformedPosition[1];
 
-            });
-
-
+                }, true)
+            );
             window.addEventListener("mousemove", function(ev) {
                 var transformedPosition = animationAPI.toContainerPoint([ev.pageX, ev.pageY]);
                 mousePosition[0] = transformedPosition[0];

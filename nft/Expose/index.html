@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <!-- All rights reserved by @defektu -->
+    <script src="lottie.min.js"></script>
+    <script src="lottie_api.min.js"></script>
+
+</head>
+
+<body>
+    <div id="bodymovin"></div>
+
+    <script>
+        // -----------
+        // Definitions
+        // -----------
+
+        var elem = document.getElementById("bodymovin");
+        var anim, animationAPI;
+        var scale = 1;
+        var windowSize = {
+            w: window.innerWidth,
+            h: window.innerHeight
+        };
+        var elemSize = {
+            w: elem.clientWidth,
+            h: elem.clientHeight
+        };
+
+        // ---------
+        // Animation
+        // ---------
+
+        function init() {
+            animationAPI = lottie_api.createAnimationApi(anim);
+
+
+            // ---------------------------
+            // Animation Keyframe Requests
+            // ---------------------------
+
+            var mousePosition = [-500, -500];
+            //arrowY_position-expression_driver
+            var mousemov = animationAPI.getKeyPath("mouse,Transform,Position");
+            var mousemov2 = animationAPI.getKeyPath("mouse2,Transform,Position");
+
+            // ----------------------------
+            // Animation Keyframe Callbacks
+            // ----------------------------
+            animationAPI.addValueCallback(mousemov, function(currentValue) {
+                return mousePosition;
+            });
+            animationAPI.addValueCallback(mousemov2, function(currentValue) {
+                return mousePosition;
+            });
+
+            const bodymoving = document.getElementById('bodymovin');
+
+            window.addEventListener("mousemove", function(ev) {
+                var transformedPosition = animationAPI.toContainerPoint([ev.pageX, ev.pageY]);
+                mousePosition[0] = transformedPosition[0];
+                mousePosition[1] = transformedPosition[1];
+            });
+        }
+
+        // ---------------
+        // Animation Setup
+        // ---------------
+
+        var animData = {
+            container: elem,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            rendererSettings: {
+                progressiveLoad: true,
+                preserveAspectRatio: "xMidYMid meet",
+                imagePreserveAspectRatio: "xMidYMid meet"
+            },
+            path: "data.json"
+        };
+        anim = lottie.loadAnimation(animData);
+        anim.addEventListener("DOMLoaded", init);
+
+        // Lottie-Web-Docs
+        // http://airbnb.io/lottie/#/web
+
+        // Div id animation position driver
+
+        /*
+        var rect = DivID.getBoundingClientRect();
+        console.log(rect.top, rect.right, rect.bottom, rect.left);
+        */
+    </script>
+</body>
+
+</html>

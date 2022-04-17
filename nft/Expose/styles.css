@@ -1,0 +1,46 @@
+body,
+html {
+    background-color: #000;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {}
+
+#bodymovin {
+    display: block;
+    display: flex;
+    align-items: flex-end;
+}
+
+svg {
+    width: 100%;
+    height: auto !important;
+}
+
+.color1 {
+    fill: #B6C1FF;
+}
+
+.color2 {
+    fill: #68ADFF;
+}
+
+.color3 {
+    fill: #85FFDA;
+}
+
+.color4 {
+    fill: #F6FF8C;
+}
+
+.color5 {
+    fill: #FF5963;
+}
+
+.color6 {
+    fill: #FF7EAD;
+}

@@ -6,14 +6,15 @@ html {
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
 }
 
 body {}
 
-#bodymovin {
-    display: block;
-    display: flex;
-    align-items: flex-end;
+#animCont {
+    height: 100%;
+    width: 100vh;
 }
 
 svg {

@@ -1,0 +1,186 @@
+.container-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.audio-player {
+  margin-left: 8px;
+  margin-right: 8px;
+  display: block;
+  position: relative;
+  height: 50px;
+  width: 317px;
+  background: #f0f0f0;
+  border: 1px solid #999;
+  border-radius: 6px;
+  font-family: Mulish;
+  color: #000000;
+  font-size: 0.75em;
+  overflow: hidden;
+}
+
+.audio-player .controls {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 8fr 2fr;
+      grid-template-columns: 2fr 8fr 2fr;
+}
+
+.audio-player .controls > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.audio-player .controls .play-container .toggle-play {
+  display: block;
+  position: relative;
+  height: 18px;
+  width: 18px;
+  font-family: "Material Icons";
+}
+
+.audio-player .controls .play-container .toggle-play:hover {
+  cursor: pointer;
+}
+
+.audio-player .controls .play-container .toggle-play.play:after {
+  height: 18px;
+  width: 18px;
+  left: -4px;
+  top: -1px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 19px;
+  position: absolute;
+  content: "play_arrow";
+}
+
+.audio-player .controls .play-container .toggle-play.pause:after {
+  height: 18px;
+  width: 18px;
+  left: -3px;
+  top: -1px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 19px;
+  position: absolute;
+  content: "pause";
+}
+
+.audio-player .controls .middle-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 50px;
+}
+
+.audio-player .controls .middle-container .timeline {
+  background: #000000;
+  width: 100%;
+  height: 9px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.audio-player .controls .middle-container .timeline .progress {
+  background: #E3AE21;
+  width: 0%;
+  height: 100%;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  border-radius: 6px;
+}
+
+.audio-player .controls .middle-container .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+}
+
+.audio-player .controls .middle-container .time > * {
+  padding: 2px;
+}
+
+.audio-player .controls .volume-container {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.audio-player .controls .volume-container .volume-button {
+  display: block;
+  position: relative;
+  height: 18px;
+  width: 18px;
+  font-family: "Material Icons";
+}
+
+.audio-player .controls .volume-container .volume-button:after {
+  height: 18px;
+  width: 18px;
+  left: -4px;
+  top: -1px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 19px;
+  position: absolute;
+  content: "volume_up";
+}
+
+.audio-player .controls .volume-container .volume-button.icono-volumeMute:after {
+  content: "volume_off";
+}
+
+.audio-player .controls .volume-container .volume-slider {
+  position: absolute;
+  left: 0px;
+  top: 26px;
+  z-index: -1;
+  width: 0;
+  height: 15px;
+  background: #000000;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.audio-player .controls .volume-container .volume-slider .volume-percentage {
+  background: #0072D6;
+  height: 100%;
+  width: 75%;
+}
+
+.audio-player .controls .volume-container:hover .volume-slider {
+  left: -65px;
+  width: 65px;
+}
+/*# sourceMappingURL=audio.css.map */

@@ -26,7 +26,6 @@ const audioMotion = new AudioMotionAnalyzer(
     }
 );
 
-// play stream
 document.getElementById('live').addEventListener('click', () => {
     audioEl.src = 'http://wwfm.streamguys1.com/live';
     audioEl.play();
@@ -83,7 +82,7 @@ function smooth() {
 }
 smooth();
 
-var elem = document.getElementById("bodymovin");
+var elem = document.getElementById("animCont");
 var anim, animationAPI;
 
 function init() {
@@ -171,9 +170,11 @@ var animData = {
     rendererSettings: {
         progressiveLoad: true,
         preserveAspectRatio: "xMidYMid meet",
-        imagePreserveAspectRatio: "xMidYMid meet"
+        //imagePreserveAspectRatio: "xMidYMid meet"
     },
     path: "data.json"
 };
+// anim = lottie.setQuality(4);
 anim = lottie.loadAnimation(animData);
+// anim.setSubframe(false);
 anim.addEventListener("DOMLoaded", init);

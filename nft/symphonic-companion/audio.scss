@@ -1,0 +1,153 @@
+.container-flex {
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+// +++ start: audio player +++
+.audio-player {
+    margin-left: 8px;
+    margin-right: 8px;
+    display: block;
+    position: relative;
+    height: 50px;
+    width: 317px;
+    background: #f0f0f0;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-family: Mulish;
+    color: #000000;
+    font-size: 0.75em;
+    overflow: hidden;
+    .controls {
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        >* {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .play-container {
+            .toggle-play {
+                display: block;
+                position: relative;
+                height: 18px;
+                width: 18px;
+                font-family: "Material Icons";
+                &:hover {
+                    cursor: pointer;
+                }
+                &.play {
+                    &:after {
+                        height: 18px;
+                        width: 18px;
+                        left: -4px;
+                        top: -1px;
+                        font-weight: 400;
+                        font-size: 24px;
+                        line-height: 19px;
+                        position: absolute;
+                        content: "play_arrow";
+                    }
+                }
+                &.pause {
+                    &:after {
+                        height: 18px;
+                        width: 18px;
+                        left: -3px;
+                        top: -1px;
+                        font-weight: 400;
+                        font-size: 24px;
+                        line-height: 19px;
+                        position: absolute;
+                        content: "pause";
+                    }
+                }
+            }
+        }
+        .middle-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 50px;
+            .timeline {
+                background: #000000;
+                width: 100%;
+                height: 9px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 6px;
+                margin-top: 10px;
+                .progress {
+                    background: #E3AE21;
+                    width: 0%;
+                    height: 100%;
+                    transition: 0.25s;
+                    border-radius: 6px;
+                }
+            }
+            .time {
+                display: flex;
+                color: #000000;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                width: 100%;
+                >* {
+                    padding: 2px;
+                }
+            }
+        }
+        .volume-container {
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            .volume-button {
+                display: block;
+                position: relative;
+                height: 18px;
+                width: 18px;
+                font-family: "Material Icons";
+                &:after {
+                    height: 18px;
+                    width: 18px;
+                    left: -4px;
+                    top: -1px;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 19px;
+                    position: absolute;
+                    content: "volume_up";
+                }
+                &.icono-volumeMute:after {
+                    content: "volume_off";
+                }
+            }
+            .volume-slider {
+                position: absolute;
+                left: 0px;
+                top: 26px;
+                z-index: -1;
+                width: 0;
+                height: 15px;
+                background: #000000;
+                transition: .25s;
+                .volume-percentage {
+                    background: #0072D6;
+                    height: 100%;
+                    width: 75%;
+                }
+            }
+            &:hover {
+                .volume-slider {
+                    left: -65px;
+                    width: 65px;
+                }
+            }
+        }
+    }
+}

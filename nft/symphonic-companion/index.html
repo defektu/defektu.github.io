@@ -2,10 +2,17 @@
 <html>
 
 <head>
+    <title>Symphonic Companion @defektu</title>
     <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="audio.css" rel="stylesheet" type="text/css" />
     <!-- All rights reserved by @defektu -->
     <script src="lottie.min.js"></script>
     <script src="lottie_api.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+
 
 </head>
 
@@ -21,23 +28,63 @@
         <div class="ball"></div>
         <div class="loading-text"> Symphonic Companion&#10;is loading...</div>
     </div>
+    <div id="content">
+        <div id="animCont"></div>
 
-    <div id="bodymovin"></div>
 
-    <audio id="audio" src="Duo-for-Violin-and-Harp-Op-156-min.mp3" controls crossorigin></audio>
+        <div class="container-flex">
 
-    <label class="standartLabel">Upload audio file
-        <input id="upload" type="file" accept="audio/*">
-    </label>
 
-    <button id="live">Play live stream</button>
-    <label class="switch">
-        <input type="checkbox" id="mic">
-        <span class="slider round">🎤 ON/OFF </span>
 
-    </label>
+            <!-- start: custom audio player -->
+            <div class="audio-player">
+                <div class="controls">
+                    <div class="play-container">
+                        <div class="toggle-play play"></div>
+                    </div>
+                    <div class="middle-container">
+                        <div class="timeline">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="time">
+                            <div class="current">0:00</div>
+                            <div class="divider">/</div>
+                            <div class="length"></div>
+                        </div>
+                    </div>
+                    <div class="volume-container">
+                        <div class="volume-button">
+                            <div class="volume icono-volumeMedium"></div>
+                        </div>
+                        <div class="volume-slider">
+                            <div class="volume-percentage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: custom audio player -->
 
-    <script type="module" src="./script.js"></script>
+
+
+
+            <audio id="audio" crossorigin>
+        </audio>
+
+            <label class="standartLabel">Upload audio file
+            <input id="upload" type="file" accept="audio/*">
+        </label>
+
+            <button id="live">Play live stream</button>
+            <label class="switch">
+            <input type="checkbox" id="mic">
+            <span class="slider round">🎤 ON/OFF </span>
+    
+        </label>
+
+        </div>
+    </div>
+    <script src="audio-player.js"></script>
+    <script type="module" src="script.js"></script>
 
 </body>
 

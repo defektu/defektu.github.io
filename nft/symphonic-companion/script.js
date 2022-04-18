@@ -87,6 +87,12 @@ var elem = document.getElementById("bodymovin");
 var anim, animationAPI;
 
 function init() {
+    let loaderWrapper = document.querySelector('.loading');
+
+    //loaderWrapper.parentElement.removeChild(loaderWrapper);
+    loaderWrapper.className = "loading hidden";
+
+
     animationAPI = lottie_api.createAnimationApi(anim);
 
     var trebleCont = animationAPI.getKeyPath("C | Treble_Hand 2,Transform,Position");

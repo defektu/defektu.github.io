@@ -94,7 +94,7 @@ function init() {
     var highmidCont = animationAPI.getKeyPath("C | Mid_R_Hand 2,Transform,Position");
 
     var midCont = animationAPI.getKeyPath("BoneControl,Transform,Position");
-    var midCont = animationAPI.getKeyPath("C | Mid_Bone 2,Transform,Position");
+    //var midCont = animationAPI.getKeyPath("C | Mid_Bone 2,Transform,Position");
     var lowMidCont = animationAPI.getKeyPath("C | Mid_Head,Transform,Position");
     var bassCont = animationAPI.getKeyPath("C | Bass_L_Hand_Wrist,Transform,Position");
     var headCont = animationAPI.getKeyPath("C | BassHead,Transform,Position");
@@ -111,49 +111,52 @@ function init() {
 
     animationAPI.addValueCallback(trebleCont, function(currentValue) {
 
-        trebleCont[0] = audioMotion.getEnergy(200, 700) * 800 - 200
+        trebleCont[0] = audioMotion.getEnergy(700, 1000) * 1200 - 200
         return trebleCont;
     });
+    animationAPI.addValueCallback(trebleBackHandCont, function(currentValue) {
+        //range -200,200
+        trebleBackHandCont[0] = audioMotion.getEnergy(50, 3000) * 1600 - 200
+        return trebleBackHandCont;
+    });
+
 
     animationAPI.addValueCallback(highmidCont, function(currentValue) {
         //range -200,200
-        highmidCont[0] = audioMotion.getEnergy(200, 700) * 800 - 200
+        highmidCont[0] = audioMotion.getEnergy(150, 600) * 800 - 200
         return highmidCont;
     });
     animationAPI.addValueCallback(midCont, function(currentValue) {
         //range -200,200
-        var energy = audioMotion.getEnergy(200, 3000) * 1600;
-        energy = Math.min(Math.max(energy, 0), 150);
+        var energy = audioMotion.getEnergy(200, 700) * 1200;
+        energy = Math.min(Math.max(energy, 0), 170);
         midCont[0] = energy + audioMotion.getEnergy(200, 3000) * 200 - 50;
         return midCont;
     });
     animationAPI.addValueCallback(lowMidCont, function(currentValue) {
         //range -200,200
-        lowMidCont[0] = audioMotion.getEnergy(0, 400) * 400 - 200
+        lowMidCont[0] = audioMotion.getEnergy(50, 400) * 800 - 200
         return lowMidCont;
     });
+
+
     animationAPI.addValueCallback(bassCont, function(currentValue) {
         //range -200,200
-        bassCont[0] = audioMotion.getEnergy(0, 300) * -400 + 200
+        bassCont[0] = audioMotion.getEnergy(50, 300) * -400 + 200
         return bassCont;
     });
     animationAPI.addValueCallback(headCont, function(currentValue) {
         //range -200,200
-        headCont[0] = audioMotion.getEnergy(0, 1000) * 800 - 200
+        headCont[0] = audioMotion.getEnergy(50, 1000) * 800 - 200
         return headCont;
     });
 
+
     animationAPI.addValueCallback(peakCont, function(currentValue) {
         //range -200,200
-        peakCont[0] = audioMotion.getEnergy(200, 800) * 800 - 200
+        peakCont[0] = audioMotion.getEnergy(50, 8000) * 1600 - 200
         return peakCont;
     });
-    animationAPI.addValueCallback(trebleBackHandCont, function(currentValue) {
-        //range -200,200
-        trebleBackHandCont[0] = audioMotion.getEnergy(0, 8000) * 1600 - 200
-        return trebleBackHandCont;
-    });
-
 
 }
 

@@ -260,6 +260,7 @@ input:checked+.slider:before {
 .hidden {
     opacity: 0;
     transition: opacity 1s ease-out;
+    pointer-events: none;
 }
 
 .visible {

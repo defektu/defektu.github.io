@@ -88,13 +88,7 @@ var anim, animationAPI;
 
 function init() {
     let loaderWrapper = document.querySelector('.loading');
-
-    //
     loaderWrapper.className = "loading hidden";
-    setTimeout(function() {
-        loaderWrapper.parentElement.removeChild(loaderWrapper);
-    }, 1000);
-
 
     animationAPI = lottie_api.createAnimationApi(anim);
 

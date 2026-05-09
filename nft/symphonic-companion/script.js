@@ -13,7 +13,7 @@ defektu.com
 `, `font-family: monospace`);
 
 
-import AudioMotionAnalyzer from 'https://cdn.skypack.dev/audiomotion-analyzer?min';
+import AudioMotionAnalyzer from 'https://esm.sh/audiomotion-analyzer@4.5.4';
 
 // audio source
 const audioEl = document.getElementById('audio');
